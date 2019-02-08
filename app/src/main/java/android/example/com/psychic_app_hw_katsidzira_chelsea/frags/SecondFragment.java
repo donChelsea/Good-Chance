@@ -3,6 +3,7 @@ package android.example.com.psychic_app_hw_katsidzira_chelsea.frags;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.example.com.psychic_app_hw_katsidzira_chelsea.ChoiceDatabaseHelper;
 import android.example.com.psychic_app_hw_katsidzira_chelsea.R;
 import android.example.com.psychic_app_hw_katsidzira_chelsea.frags.ThirdFragment;
@@ -53,6 +54,7 @@ public class SecondFragment extends Fragment {
         final ImageView[] images = new ImageView[] {image1, image2, image3, image4};
         rand = new Random();
         final int androidPick = rand.nextInt(images.length);
+        context = getContext();
         Log.d("SecondFrag", "androidPick " + androidPick);
 
         Bundle args = getArguments();
@@ -82,12 +84,16 @@ public class SecondFragment extends Fragment {
                     } else {
                         totalChoices++;
                     }
+                    Log.i("second frag", correctChoices + " " + wrongChoices + " " + totalChoices);
+//                    ChoiceDatabaseHelper databaseHelper = ChoiceDatabaseHelper.getInstance(context);
+//                    SQLiteDatabase database = databaseHelper.getWritableDatabase();
+////                    databaseHelper.insertData(0);
+//                    databaseHelper.updateChoices(1);
+//                    databaseHelper.queryChoices();
                 }
             });
         }
 
-        ChoiceDatabaseHelper databaseHelper = new ChoiceDatabaseHelper(context);
-        databaseHelper.getWritableDatabase();
 
 
         return rootView;
