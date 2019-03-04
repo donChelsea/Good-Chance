@@ -9,25 +9,24 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-    private Button button;
+    public static ChoiceDatabaseHelper databaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        databaseHelper = new ChoiceDatabaseHelper(this);
+
         findViewById(R.id.main_activity_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MainFragment mainFragment = new MainFragment();
+                MainFragment mainFragment = MainFragment.newInstance();
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.main_container, mainFragment).addToBackStack("first");
                 fragmentTransaction.commit();
             }
         });
-
-
     }
-
 }

@@ -1,14 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     tools:context=".frags.ThirdFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/user_choice_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="24sp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:text="@string/your_choice"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/user_pick_imageview"
+        app:layout_constraintEnd_toStartOf="@id/android_choice_textview"
+        app:layout_constraintHorizontal_bias="0.313"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/android_choice_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/android_choice"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/android_pick_imageview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.645" />
+
+    <ImageView
+        android:id="@+id/user_pick_imageview"
+        android:layout_width="@dimen/display_image_frag"
+        android:layout_height="@dimen/display_image_frag"
+        android:layout_margin="24dp"
+        android:layout_marginTop="116dp"
+        app:layout_constraintBottom_toTopOf="@+id/result_textview"
+        app:layout_constraintEnd_toStartOf="@id/android_pick_imageview"
+        app:layout_constraintHorizontal_bias="0.382"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/android_pick_imageview"
+        android:layout_width="@dimen/display_image_frag"
+        android:layout_height="@dimen/display_image_frag"
+        android:layout_margin="24dp"
+        android:layout_marginTop="84dp"
+        app:layout_constraintBottom_toTopOf="@+id/result_textview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/user_pick_imageview"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/result_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:text="@string/text_here"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.44" />
+
+    <TextView
+        android:id="@+id/percentage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/percentage"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/result_textview"
+        app:layout_constraintVertical_bias="0.149" />
+</android.support.constraint.ConstraintLayout>

@@ -1,10 +1,9 @@
 package android.example.com.psychic_app_hw_katsidzira_chelsea.frags;
 
-
-import android.content.Context;
-import android.example.com.psychic_app_hw_katsidzira_chelsea.ChoiceDatabaseHelper;
 import android.example.com.psychic_app_hw_katsidzira_chelsea.R;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -26,13 +25,11 @@ import java.util.List;
 
 public class MainFragment extends Fragment {
     private static final String TAG = "MainFragment";
-    private View rootView;
     private TextView mainTextView;
     private Spinner spinner;
     private Button startButton;
-    private Context context;
     private List<String> categories;
-    public static final String ARGS_KEY = "themes_list";
+    public static final String THEMES_LIST = "themes_list";
     private int choosenTheme;
     private ArrayList<Integer> nineties = new ArrayList<>(Arrays.asList(R.drawable.rugrats90s,
             R.drawable.drinks90s, R.drawable.justin90s, R.drawable.freshprince90s, R.drawable.clueless90s, R.drawable.models90s));
@@ -43,17 +40,25 @@ public class MainFragment extends Fragment {
 
 
     public MainFragment() {
-
     }
 
+    public static MainFragment newInstance() {
+        return new MainFragment();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_main, container, false);
-        mainTextView = rootView.findViewById(R.id.pick_theme_textview);
-        spinner = rootView.findViewById(R.id.themes_spinner);
-        startButton = rootView.findViewById(R.id.start_button);
+        return inflater.inflate(R.layout.fragment_main, container, false);
+
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        mainTextView = view.findViewById(R.id.pick_theme_textview);
+        spinner = view.findViewById(R.id.themes_spinner);
+        startButton = view.findViewById(R.id.start_button);
 
         categories = new ArrayList<>();
         categories.add("Choose from");
@@ -62,7 +67,7 @@ public class MainFragment extends Fragment {
         categories.add("20's Jazz");
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
-                rootView.getContext(),
+                view.getContext(),
                 android.R.layout.simple_spinner_item,
                 categories);
 
@@ -73,8 +78,6 @@ public class MainFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
-                    case 0:
-                        break;
                     case 1:
                         choosenTheme = 1;
                         break;
@@ -91,26 +94,24 @@ public class MainFragment extends Fragment {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                Toast.makeText(rootView.getContext(), "Please select a theme", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Please select a theme", Toast.LENGTH_SHORT).show();
             }
         });
 
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Collections.shuffle(nineties);
-                Collections.shuffle(eighties);
-                Collections.shuffle(twenties);
                 switch (choosenTheme) {
-                    case 0:
-                        break;
                     case 1:
+                        Collections.shuffle(nineties);
                         startGame(nineties);
                         break;
                     case 2:
+                        Collections.shuffle(eighties);
                         startGame(eighties);
                         break;
                     case 3:
+                        Collections.shuffle(twenties);
                         startGame(twenties);
                         break;
                     default:
@@ -118,19 +119,15 @@ public class MainFragment extends Fragment {
                 }
             }
         });
-        return rootView;
-
-
     }
 
     public void startGame(ArrayList themeList) {
-        SecondFragment secondFragment = new SecondFragment();
+        SecondFragment secondFragment = SecondFragment.newInstance();
         Bundle args = new Bundle();
-        args.putIntegerArrayList(ARGS_KEY, themeList);
+        args.putIntegerArrayList(THEMES_LIST, themeList);
         secondFragment.setArguments(args);
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.main_container, secondFragment)
+        getActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.main_container, secondFragment)
                 .addToBackStack("second")
                 .commit();
     }
