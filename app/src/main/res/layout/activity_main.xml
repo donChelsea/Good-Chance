@@ -4,7 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorWhite"
     tools:context=".MainActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorDarkFusia"
+        android:elevation="4dp"
+        android:fitsSystemWindows="false"
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextColor="@color/colorWhite"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -18,28 +31,33 @@
             android:id="@+id/title_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Blast From the Past: How Psychic Are You?"
-            android:textSize="30sp"
-            app:layout_constraintTop_toTopOf="parent"
+            android:fontFamily="@font/bubblegum"
+            android:gravity="center"
+            android:text="@string/how_psychic_are_you_nlet_s_play"
+            android:textColor="@color/colorBlue"
+            android:textSize="55sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:gravity="center"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/main_activity_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/play"
-            android:textSize="22sp"
+            android:layout_width="105dp"
+            android:layout_height="53dp"
             android:layout_margin="16dp"
+            android:layout_marginTop="76dp"
+            android:background="@drawable/gradient"
+            android:fontFamily="@font/bubblegum"
+            android:text="@string/play"
+            android:textColor="@color/colorWhite"
+            android:textSize="35sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/title_textview"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/title_textview" />
     </android.support.constraint.ConstraintLayout>
+
 
     <FrameLayout
         android:id="@+id/main_container"
@@ -50,6 +68,6 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0" />
 
 </android.support.constraint.ConstraintLayout>

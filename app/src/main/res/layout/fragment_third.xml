@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="@color/colorWhite"
     tools:context=".frags.ThirdFragment">
 
     <TextView
@@ -13,54 +13,62 @@
         android:layout_height="wrap_content"
         android:layout_margin="24sp"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginBottom="8dp"
+        android:fontFamily="@font/bubblegum"
         android:gravity="center"
         android:text="@string/your_choice"
-        android:textSize="20sp"
+        android:textColor="@color/colorBlue"
+        android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/user_pick_imageview"
         app:layout_constraintEnd_toStartOf="@id/android_choice_textview"
-        app:layout_constraintHorizontal_bias="0.313"
+        app:layout_constraintHorizontal_bias="0.394"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.972" />
 
     <TextView
         android:id="@+id/android_choice_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="36dp"
-        android:layout_marginRight="36dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="40dp"
+        android:fontFamily="@font/bubblegum"
+        android:gravity="center"
         android:text="@string/android_choice"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/android_pick_imageview"
+        android:textColor="@color/colorBlue"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.645" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
+    <com.mikhaellopez.circularimageview.CircularImageView
         android:id="@+id/user_pick_imageview"
-        android:layout_width="@dimen/display_image_frag"
-        android:layout_height="@dimen/display_image_frag"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
         android:layout_margin="24dp"
-        android:layout_marginTop="116dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/result_textview"
         app:layout_constraintEnd_toStartOf="@id/android_pick_imageview"
         app:layout_constraintHorizontal_bias="0.382"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.735"
+        app:civ_border="false"
         tools:src="@tools:sample/avatars" />
 
-    <ImageView
+    <com.mikhaellopez.circularimageview.CircularImageView
         android:id="@+id/android_pick_imageview"
-        android:layout_width="@dimen/display_image_frag"
-        android:layout_height="@dimen/display_image_frag"
+        android:layout_width="172dp"
+        android:layout_height="175dp"
         android:layout_margin="24dp"
-        android:layout_marginTop="84dp"
-        app:layout_constraintBottom_toTopOf="@+id/result_textview"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="24dp"
+        app:civ_border="false"
+        app:layout_constraintVertical_bias="0.735"
+        app:layout_constraintHorizontal_bias="0.382"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/user_pick_imageview"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/android_choice_textview"
         tools:src="@tools:sample/avatars" />
 
     <TextView
@@ -70,26 +78,31 @@
         android:layout_margin="24dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
+        android:fontFamily="@font/bubblegum"
         android:gravity="center"
+        android:textColor="@color/colorLighterFusia"
         android:text="@string/text_here"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.44" />
+        app:layout_constraintVertical_bias="0.735" />
 
     <TextView
         android:id="@+id/percentage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/bubblegum"
         android:gravity="center"
         android:text="@string/percentage"
         android:textSize="40sp"
+        android:textColor="@color/colorAccent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/result_textview"
-        app:layout_constraintVertical_bias="0.149" />
+        app:layout_constraintVertical_bias="0.455" />
 </android.support.constraint.ConstraintLayout>

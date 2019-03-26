@@ -3,17 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="@color/colorWhite"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".frags.MainFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:id="@+id/pick_theme_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pick any theme!"
-        android:textSize="35sp"
+        android:fontFamily="@font/bubblegum"
+        android:textColor="@color/colorBlue"
+        android:text="@string/pick_any_theme"
+        android:textSize="50sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
@@ -23,8 +24,8 @@
 
     <Spinner
         android:id="@+id/themes_spinner"
-        android:layout_width="180dp"
-        android:layout_height="50dp"
+        android:layout_width="250dp"
+        android:layout_height="80dp"
         android:layout_marginTop="36dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -32,13 +33,17 @@
         app:layout_constraintTop_toBottomOf="@id/pick_theme_textview" />
 
 
+
     <Button
         android:id="@+id/start_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="272dp"
+        android:layout_height="62dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/gradient"
+        android:fontFamily="@font/bubblegum"
         android:text="@string/start_game"
-        android:textSize="20sp"
+        android:textColor="@android:color/white"
+        android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

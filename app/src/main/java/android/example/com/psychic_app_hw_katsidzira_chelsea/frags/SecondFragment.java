@@ -1,11 +1,11 @@
 package android.example.com.psychic_app_hw_katsidzira_chelsea.frags;
 
 
+import android.support.v4.app.Fragment;
 import android.example.com.psychic_app_hw_katsidzira_chelsea.R;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
